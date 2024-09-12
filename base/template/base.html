@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/coxinha-AQEJ3vZJPRtgLNxB.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Salgado & Cia</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/scripts.js' %}" defer></script>
+</head>
+<body>
+
+    <nav>
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/whatsapp-image-2024-04-28-at-13.26.52-YKbJP9eOk1u815VJ.png" alt="Ícone do Restaurante">
+        <ul>
+            <li><a href="#home" onclick="showSection('home'); return false;">Home</a></li>
+            <li><a href="#promocoes" onclick="showSection('promocoes'); return false;">Promoções</a></li>
+            <li><a href="#cardapio" onclick="showSection('cardapio'); return false;">Cardápio</a></li>
+            <li><a href="#localizacao" onclick="showSection('localizacao'); return false;">Localização</a></li>
+            <li><a href="#peca-ja" onclick="showSection('peca-ja'); return false;">Peça Já!</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="active">
+        <h1>Bem-vindo ao Restaurante!</h1>
+        <p>A melhor comida da cidade, servida com carinho.</p>
+    </section>
+
+    <section id="promocoes">
+        <h1>Promoções</h1>
+        <p>Aproveite nossas promoções exclusivas!</p>
+    </section>
+
+    <section id="cardapio">
+        <h1>Cardápio</h1>
+        <p>Confira nosso cardápio diversificado.</p>
+    </section>
+
+    <section id="localizacao">
+        <h1>Localização</h1>
+        <p>Estamos localizados no centro da cidade.</p>
+    </section>
+
+    <section id="peca-ja">
+        <h1>Peça Já!</h1>
+        <p>Faça seu pedido online agora mesmo!</p>
+    </section>
+
+</body>
+</html>

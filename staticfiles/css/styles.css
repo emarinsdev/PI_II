@@ -1,0 +1,73 @@
+/* ESTILO GLOBAL */
+
+body {
+    font-family: verdana , sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+/* ESTILO DE NAVEGAÇÃO */
+
+nav {
+    background-color: #e4641a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+nav img {
+    width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    margin-right: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    padding: 14px 20px;
+}
+
+nav ul li a {
+    color: rgba(242, 245, 51, 0.911);
+    text-decoration: none;
+    font-size: 27px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #b94d0eec;
+    border-radius: 4px;
+}
+
+/* ESTILO DE SESSÃO */
+
+section {
+    padding: 27px;
+    text-align: center;
+    margin-left: 0; /* Ajuste conforme necessário */
+    flex-grow: 1;
+    width: 100%;
+}
+
+section h1, section p {
+    color: black; /* Cor preta para o texto */
+}
+
+#home, #promocoes, #cardapio, #localizacao, #peca-ja {
+    display: none;
+}
+
+.active {
+    display: block;
+}
