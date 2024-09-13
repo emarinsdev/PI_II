@@ -28,3 +28,22 @@ window.onload = function() {
     console.log('window.onload evento, hash:', hash); // Log para depuração
     showSection(hash);
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.querySelector("#search-bar");  // Assumindo que você tenha uma barra de busca
+    const produtos = document.querySelectorAll(".produto");
+
+    searchInput.addEventListener("input", function() {
+        const searchValue = searchInput.value.toLowerCase();
+
+        produtos.forEach(function(produto) {
+            const produtoNome = produto.querySelector("h2").textContent.toLowerCase();
+            
+            if (produtoNome.includes(searchValue)) {
+                produto.style.display = "block";  // Mostra o produto se ele corresponder à pesquisa
+            } else {
+                produto.style.display = "none";  // Oculta o produto se não corresponder
+            }
+        });
+    });
+});

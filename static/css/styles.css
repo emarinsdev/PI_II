@@ -1,5 +1,4 @@
 /* ESTILO GLOBAL */
-
 body {
     font-family: Verdana, sans-serif;
     margin: 0;
@@ -8,21 +7,63 @@ body {
     flex-direction: column; /* Alinha o conteúdo em coluna */
 }
 
-/* ESTILO DE NAVEGAÇÃO */
+/* Defina a barra de navegação ou a página como 'relative' */
+nav, body {
+    position: relative;
+}
 
+/* Defina a barra de navegação e a imagem como 'relative' */
 nav {
+    display: flex; /* Usa flexbox para layout horizontal */
+    align-items: center; /* Alinha verticalmente ao centro */
     background-color: #e4641a;
+    width: 100%;
+    padding: 0 20px; /* Ajusta o padding para remover espaço extra vertical */
+    box-sizing: border-box;
+    position: relative; /* Garante o posicionamento relativo da navegação */
+}
+
+/* Ajuste a posição do botão do WhatsApp */
+#whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ajusta a posição dos itens dentro do nav */
+    justify-content: center;
+    z-index: 1000;
+}
+
+#whatsapp-button img {
+    width: 30px;
+    height: 30px;
+}
+
+#whatsapp-button:hover {
+    background-color: #1EBEA5;
+}
+
+/* ESTILO DE NAVEGAÇÃO */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha itens à esquerda */
     width: 100%;
-    padding: 10px 20px; /* Adiciona padding interno */
+    padding: 0 20px; /* Ajusta o padding interno para remover espaço extra vertical */
     box-sizing: border-box;
 }
 
 nav img {
     width: 200px; /* Ajuste o tamanho conforme necessário */
     height: auto;
+    margin-right: 20px; /* Adiciona espaço à direita da imagem */
 }
 
 nav ul {
@@ -34,7 +75,7 @@ nav ul {
 }
 
 nav ul li {
-    padding: 14px 20px;
+    padding: 14px 20px; /* Ajuste o padding dos itens da lista */
 }
 
 nav ul li a {
@@ -50,23 +91,171 @@ nav ul li a:hover {
 }
 
 /* ESTILO DE SESSÃO */
-
 section {
     padding: 27px;
-    text-align: center;
     margin: 0;
     flex-grow: 1;
     width: 100%;
+    display: none; /* Oculta todas as seções por padrão */
+}
+
+section.active {
+    display: block; /* Mostra a seção ativa */
 }
 
 section h1, section p {
     color: black; /* Cor preta para o texto */
 }
 
-#home, #promocoes, #cardapio, #localizacao, #peca-ja {
-    display: none;
+/* Estilo específico para a seção de promoções */
+#promocoes {
+    text-align: justify; /* Alinha o texto para justificar */
 }
 
-.active {
-    display: block;
+/* Estilo para as outras seções */
+#home, #cardapio, #localizacao, #peca-ja {
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos para a barra de busca */
+#search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.vitrine-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.produto {
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+
+.produto img {
+    width: 100%;
+    height: auto;
+}
+
+.produto h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.produto p {
+    font-size: 1rem;
+    color: #333;
+}
+
+
+/* Estilos específicos para a seção 'Peça Já!' */
+#peca-ja .text-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 42vh; /* Ajuste se necessário para centralizar verticalmente */
+}
+
+#peca-ja .btn:link,
+#peca-ja .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    background-color: #FFA500; /* Cor de fundo laranja */
+    color: #fff; /* Cor do texto branco */
+}
+
+#peca-ja .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#peca-ja .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#peca-ja .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    background-color: #ff7300; /* Cor de fundo laranja para o ::after */
+}
+
+#peca-ja .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+#peca-ja .btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* Estilo específico para a seção de localização */
+#localizacao {
+    background-color: #FFA500; /* Cor de fundo laranja */
+    color: white; /* Cor do texto em branco para contraste */
+    padding: 27px;
+    margin: 0;
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Seções específicas podem ter estilos adicionais conforme necessário */
+#localizacao h1, #localizacao p {
+    color: white; /* Cor do texto branca para a seção 'Localização' */
+}
+
+/* Estilo específico para a seção de localização */
+#localizacao {
+    background-color: #ff7300; /* Cor de fundo laranja */
+    color: white; /* Cor do texto em branco para contraste */
+    padding: 27px;
+    margin: 0;
+    text-align: center; /* Centraliza o texto */
+    box-sizing: border-box; /* Inclui padding e border na largura e altura total */
+    width: 100%; /* Garante que a seção ocupe toda a largura disponível */
+    max-width: 100%; /* Evita que a largura da seção exceda a largura da tela */
+}
+
+/* Garante que o mapa também esteja alinhado e dimensionado corretamente */
+.map-container {
+    display: flex;
+    justify-content: center; /* Centraliza o mapa horizontalmente */
+}
+
+.map-iframe {
+    width: 100%; /* Faz com que o mapa ocupe toda a largura do container */
+    max-width: 800px; /* Define uma largura máxima para o mapa */
+    height: 500px; /* Ajuste a altura conforme necessário */
+    border: 0;
 }

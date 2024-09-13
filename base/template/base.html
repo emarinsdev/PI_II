@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static 'js/scripts.js' %}" defer></script>
 </head>
+
 <body>
+    <!-- Link do WhatsApp -->
+    <a href="https://wa.me/5513997021182" target="_blank" style="text-decoration: none;">
+        <button id="whatsapp-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </button>
+    </a>
 
     <nav>
         <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/whatsapp-image-2024-04-28-at-13.26.52-YKbJP9eOk1u815VJ.png" alt="Ícone do Restaurante">
@@ -23,29 +30,120 @@
     </nav>
 
     <section id="home" class="active">
-        <h1>Bem-vindo ao Restaurante!</h1>
-        <p>A melhor comida da cidade, servida com carinho.</p>
+        <h1>Bem-vindo ao Seu Salgado & Cia!</h1>
+        <p>O melhor salgado da cidade, servida com carinho e crocancia.</p>
     </section>
 
     <section id="promocoes">
         <h1>Promoções</h1>
-        <p>Aproveite nossas promoções exclusivas!</p>
+        <p>
+            Encomendas via Whatsapp com 15 dias de antecedência acima de 200 salgados, ganham 20% de desconto + frete grátis para São Vicente e Santos!<br>
+            Encomendas via Whatsapp com 7 dias de antecedência acima de 200 salgados, ganham 10% de desconto + frete grátis para São Vicente e Santos!<br><br>
+    
+            Programa fidelidade (junte suas notas):<br>
+            Peça 3 vezes dentro de um mês e ganhe 1 refrigerante 2 litros grátis!<br><br>
+    
+            No dia do seu aniversário, o refri é por nossa conta!<br>
+            Para pedidos acima de 200 salgados, nos envie uma foto de sua data de nascimento em seu RG e ganhe um refrigerante 2 litros grátis!!!
+        </p>
     </section>
 
     <section id="cardapio">
         <h1>Cardápio</h1>
-        <p>Confira nosso cardápio diversificado.</p>
+        
+        <!-- Barra de Busca -->
+        <input type="text" id="search-bar" placeholder="Buscar produto...">
+
+        <div class="vitrine-produtos">
+            <!-- Produto 1 - Coxinhas crocantes -->
+            <div class="produto">
+                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023093124-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(5).jpeg" alt="Coxinhas Crocantes">
+                <h2>Coxinhas Crocantes</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 2 - Bolinha de Queijo -->
+            <div class="produto">
+                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023128059-WhatsApp%20Image%202024-08-18%20at%2020.16.28.jpeg" alt="Bolinha de Queijo">
+                <h2>Bolinha de Queijo</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 3 - Croquete de Carne -->
+            <div class="produto">
+                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023167073-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(3).jpeg" alt="Croquete de Carne">
+                <h2>Croquete de Carne</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 4 - Enroladinho de Salsicha -->
+            <div class="produto">
+                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023141931-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(2).jpeg" alt="Enroladinho de Salsicha">
+                <h2>Enroladinho de Salsicha</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 5 - Kibe Tradicional -->
+            <div class="produto">
+                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=392,h=392,fit=crop,q=100/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023113356-WhatsApp%20Image%202024-08-18%20at%2020.16.29.jpeg" alt="Kibe Tradicional">
+                <h2>Kibe Tradicional</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 6 - Maravilha de Presunto e Queijo -->
+            <div class="produto">
+                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023074379-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(4).jpeg" alt="Maravilha de Presunto e Queijo">
+                <h2>Maravilha de Presunto e Queijo</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 7 - Maravilha de Calabresa -->
+            <div class="produto">
+                <img src="https://seusalgadoecia.com/maravilha-de-calabresa" alt="Maravilha de Calabresa">
+                <h2>Maravilha de Calabresa</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 8 - Mini Churros -->
+            <div class="produto">
+                <img src="https://seusalgadoecia.com/mini-churros" alt="Mini Churros">
+                <h2>Mini Churros</h2>
+                <p>Preço: R$ 60,00 o cento</p>
+            </div>
+
+            <!-- Produto 9 - Salgados Congelados -->
+            <div class="produto">
+                <img src="https://seusalgadoecia.com/salgados-congelados" alt="Salgados Congelados">
+                <h2>Salgados Congelados</h2>
+                <p>Preço: R$ 50,00 o cento</p>
+            </div>
+        </div>
     </section>
 
     <section id="localizacao">
         <h1>Localização</h1>
-        <p>Estamos localizados no centro da cidade.</p>
-    </section>
+        <p>Estamos localizados no endereço abaixo:</p>
+        <p>Av. Manoel de Abreu, 560 - Cidade Náutica, São Vicente - SP, 11355-400</p>
+        
+        <!-- Mapa do Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3646.2704319298905!2d-46.412239525471236!3d-23.950875476016265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce1b9a1a7254c3%3A0x702ac4fbca58b7ea!2sAv.%20Manoel%20de%20Abreu%2C%20560%20-%20Cidade%20N%C3%A1utica%2C%20S%C3%A3o%20Vicente%20-%20SP%2C%2011355-400!5e0!3m2!1spt-BR!2sbr!4v1726234658382!5m2!1spt-BR!2sbr"
+                class="map-iframe">
+            </iframe>
+        </div>
+    </section>    
 
     <section id="peca-ja">
         <h1>Peça Já!</h1>
         <p>Faça seu pedido online agora mesmo!</p>
-    </section>
-
+    
+        <div class="text-box">
+            <a href="https://www.ifood.com.br/delivery/sao-vicente-sp/seu-salgado--cia-cidade-nautica/91ffa0b1-5625-4513-b490-9fb9577606b4" class="btn btn-white btn-animated">iFood</a>
+            <a href="https://www.whatsapp.com/catalog/5513997021182/?app_absent=0" class="btn btn-white btn-animated">Whatsapp</a>
+            <a href="https://instadelivery.com.br/seusalgadocia" class="btn btn-white btn-animated">InstaDelivery</a>
+        </div>
+    </section>       
+    
 </body>
 </html>
