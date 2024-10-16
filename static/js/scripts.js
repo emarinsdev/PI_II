@@ -47,3 +47,41 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// ACESSIBILIDADE
+
+document.addEventListener('DOMContentLoaded', () => {
+    const accessibilityButton = document.getElementById('accessibilityButton');
+    const controls = document.getElementById('controls');
+    const increaseTextButton = document.getElementById('increaseText');
+    const decreaseTextButton = document.getElementById('decreaseText');
+    const toggleContrastButton = document.getElementById('toggleContrast');
+
+    let fontSize = 16; // Tamanho inicial da fonte
+
+    // Exibir/ocultar controles ao clicar no botão de acessibilidade
+    accessibilityButton.addEventListener('click', () => {
+        controls.style.display = controls.style.display === 'none' || controls.style.display === ''
+            ? 'block'
+            : 'none';
+    });
+
+    // Aumentar tamanho da fonte
+    increaseTextButton.addEventListener('click', () => {
+        fontSize += 2;
+        document.body.style.fontSize = `${fontSize}px`;
+    });
+
+    // Diminuir tamanho da fonte
+    decreaseTextButton.addEventListener('click', () => {
+        if (fontSize > 12) { // Limite mínimo de 12px
+            fontSize -= 2;
+            document.body.style.fontSize = `${fontSize}px`;
+        }
+    });
+
+    // Alternar contraste alto
+    toggleContrastButton.addEventListener('click', () => {
+        document.body.classList.toggle('high-contrast');
+    });
+});

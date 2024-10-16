@@ -8,26 +8,87 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static 'js/scripts.js' %}" defer></script>
+
+    <style>
+        /* Botão de acessibilidade */
+        .accessibility-button {
+            position: fixed;
+            left: 20px;
+            bottom: 80px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .accessibility-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Controles de acessibilidade */
+        .controls {
+            display: none;
+            position: fixed;
+            left: 20px;
+            bottom: 150px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 1000; /* Garantir sobreposição */
+        }
+
+        .controls button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Estilo de alto contraste */
+        .high-contrast {
+            background-color: black;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Link do WhatsApp -->
-    <a href="https://wa.me/5513997021182" target="_blank" style="text-decoration: none;">
-        <button id="whatsapp-button">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </button>
-    </a>
 
-    <nav>
-        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/whatsapp-image-2024-04-28-at-13.26.52-YKbJP9eOk1u815VJ.png" alt="Ícone do Restaurante">
-        <ul>
-            <li><a href="#home" onclick="showSection('home'); return false;">Home</a></li>
-            <li><a href="#promocoes" onclick="showSection('promocoes'); return false;">Promoções</a></li>
-            <li><a href="#cardapio" onclick="showSection('cardapio'); return false;">Cardápio</a></li>
-            <li><a href="#localizacao" onclick="showSection('localizacao'); return false;">Localização</a></li>
-            <li><a href="#peca-ja" onclick="showSection('peca-ja'); return false;">Peça Já!</a></li>
-        </ul>
-    </nav>
+ <!-- Botão de Acessibilidade -->
+ <div class="accessibility-button" id="accessibilityButton">
+    <img src="https://live.staticflickr.com/65535/54070305008_8f3bf09e93_b.jpg" alt="Acessibilidade">
+</div>
+
+<!-- Controles de Acessibilidade -->
+<div class="controls" id="controls">
+    <button id="increaseText">A+</button>
+    <button id="decreaseText">A-</button>
+    <button id="toggleContrast">Contraste</button>
+</div>
+
+<!-- Link do WhatsApp -->
+<a href="https://wa.me/5513997021182" target="_blank" style="text-decoration: none;">
+    <button id="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </button>
+</a>
+
+<nav>
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/whatsapp-image-2024-04-28-at-13.26.52-YKbJP9eOk1u815VJ.png" alt="Ícone do Restaurante">
+    <ul>
+        <li><a href="#home" onclick="showSection('home'); return false;">Home</a></li>
+        <li><a href="#promocoes" onclick="showSection('promocoes'); return false;">Promoções</a></li>
+        <li><a href="#cardapio" onclick="showSection('cardapio'); return false;">Cardápio</a></li>
+        <li><a href="#localizacao" onclick="showSection('localizacao'); return false;">Localização</a></li>
+        <li><a href="#peca-ja" onclick="showSection('peca-ja'); return false;">Peça Já!</a></li>
+    </ul>
+</nav>
 
     <section id="home" class="active">
         <h1>Bem-vindo ao Seu Salgado & Cia!</h1>
@@ -47,7 +108,7 @@
             Para pedidos acima de 200 salgados, nos envie uma foto de sua data de nascimento em seu RG e ganhe um refrigerante 2 litros grátis!!!
         </p>
     </section>
-
+    
     <section id="cardapio">
         <h1>Cardápio</h1>
         
@@ -57,63 +118,63 @@
         <div class="vitrine-produtos">
             <!-- Produto 1 - Coxinhas crocantes -->
             <div class="produto">
-                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023093124-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(5).jpeg" alt="Coxinhas Crocantes">
+                <img src="https://live.staticflickr.com/65535/54070398289_7183e2ca33_b.jpg" alt="Coxinhas Crocantes">
                 <h2>Coxinhas Crocantes</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 2 - Bolinha de Queijo -->
             <div class="produto">
-                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023128059-WhatsApp%20Image%202024-08-18%20at%2020.16.28.jpeg" alt="Bolinha de Queijo">
+                <img src="https://live.staticflickr.com/65535/54070527375_fe91a6c711_b.jpg" alt="Bolinha de Queijo">
                 <h2>Bolinha de Queijo</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 3 - Croquete de Carne -->
             <div class="produto">
-                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023167073-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(3).jpeg" alt="Croquete de Carne">
+                <img src="https://live.staticflickr.com/65535/54070327283_1de7d87579_b.jpg" alt="Croquete de Carne">
                 <h2>Croquete de Carne</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 4 - Enroladinho de Salsicha -->
             <div class="produto">
-                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023141931-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(2).jpeg" alt="Enroladinho de Salsicha">
+                <img src="https://live.staticflickr.com/65535/54070530355_2951e3fa0a_b.jpg" alt="Enroladinho de Salsicha">
                 <h2>Enroladinho de Salsicha</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 5 - Kibe Tradicional -->
             <div class="produto">
-                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=392,h=392,fit=crop,q=100/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023113356-WhatsApp%20Image%202024-08-18%20at%2020.16.29.jpeg" alt="Kibe Tradicional">
+                <img src="https://live.staticflickr.com/65535/54070330403_0b34ec374f_b.jpg" alt="Kibe Tradicional">
                 <h2>Kibe Tradicional</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 6 - Maravilha de Presunto e Queijo -->
             <div class="produto">
-                <img src="https://cdn.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=scale-down/cdn-ecommerce/store_01HWJNNJA7SYEXPPZD9FA58C71/assets/1724023074379-WhatsApp%20Image%202024-08-18%20at%2020.16.28%20(4).jpeg" alt="Maravilha de Presunto e Queijo">
+                <img src="https://live.staticflickr.com/65535/54070405394_2d2e55915d_b.jpg" alt="Maravilha de Presunto e Queijo">
                 <h2>Maravilha de Presunto e Queijo</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 7 - Maravilha de Calabresa -->
             <div class="produto">
-                <img src="https://seusalgadoecia.com/maravilha-de-calabresa" alt="Maravilha de Calabresa">
+                <img src="https://live.staticflickr.com/65535/54070075826_8d41eaae4c_b.jpg" alt="Maravilha de Calabresa">
                 <h2>Maravilha de Calabresa</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 8 - Mini Churros -->
             <div class="produto">
-                <img src="https://seusalgadoecia.com/mini-churros" alt="Mini Churros">
+                <img src="https://live.staticflickr.com/65535/54070535385_038c8fc6e1_b.jpg" alt="Mini Churros">
                 <h2>Mini Churros</h2>
                 <p>Preço: R$ 60,00 o cento</p>
             </div>
 
             <!-- Produto 9 - Salgados Congelados -->
             <div class="produto">
-                <img src="https://seusalgadoecia.com/salgados-congelados" alt="Salgados Congelados">
+                <img src="https://live.staticflickr.com/65535/54070078411_27ac59eedb_b.jpg" alt="Salgados Congelados">
                 <h2>Salgados Congelados</h2>
                 <p>Preço: R$ 50,00 o cento</p>
             </div>
@@ -143,7 +204,4 @@
             <a href="https://www.whatsapp.com/catalog/5513997021182/?app_absent=0" class="btn btn-white btn-animated">Whatsapp</a>
             <a href="https://instadelivery.com.br/seusalgadocia" class="btn btn-white btn-animated">InstaDelivery</a>
         </div>
-    </section>       
-    
-</body>
-</html>
+    </section>
