@@ -29,6 +29,7 @@ window.onload = function() {
     showSection(hash);
 }
 
+// Lógica para a barra de busca
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.querySelector("#search-bar");  // Assumindo que você tenha uma barra de busca
     const produtos = document.querySelectorAll(".produto");
@@ -49,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ACESSIBILIDADE
-
 document.addEventListener('DOMContentLoaded', () => {
     const accessibilityButton = document.getElementById('accessibilityButton');
     const controls = document.getElementById('controls');
@@ -85,3 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('high-contrast');
     });
 });
+
+// ADICIONANDO GESTOS DE TOQUE PARA DISPOSITIVOS MÓVEIS
+if ('ontouchstart' in window) {
+    document.addEventListener('touchstart', function(e) {
+        const target = e.target;
+        if (target.matches('.section-link')) {
+            const sectionId = target.getAttribute('data-section'); // Assume que você tenha um atributo data-section
+            showSection(sectionId);
+            window.location.hash = sectionId; // Atualiza o hash da URL
+        }
+    });
+}

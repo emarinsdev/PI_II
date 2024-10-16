@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/coxinha-AQEJ3vZJPRtgLNxB.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +16,15 @@
         /* Botão de acessibilidade */
         .accessibility-button {
             position: fixed;
-            left: 20px;
-            bottom: 80px;
+            right: 20px; /* Alinhado à direita */
+            bottom: 90px; /* Acima do botão do WhatsApp */
             width: 60px;
             height: 60px;
             border-radius: 50%;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             cursor: pointer;
+            z-index: 1000; /* Sempre acima dos outros elementos */
         }
 
         .accessibility-button img {
@@ -33,13 +37,13 @@
         .controls {
             display: none;
             position: fixed;
-            left: 20px;
-            bottom: 150px;
+            right: 20px; /* Alinhado à direita */
+            bottom: 160px; /* Acima do botão de acessibilidade */
             background: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             padding: 10px;
-            z-index: 1000; /* Garantir sobreposição */
+            z-index: 1000;
         }
 
         .controls button {
@@ -47,6 +51,15 @@
             padding: 10px;
             font-size: 18px;
             cursor: pointer;
+            border: none;
+            background-color: #81d4fa;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #4ba3c7;
         }
 
         /* Estilo de alto contraste */
@@ -55,22 +68,75 @@
             color: white;
             transition: background-color 0.3s, color 0.3s;
         }
+
+        /* Botão do WhatsApp */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px; /* Alinhado à direita */
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999; /* Abaixo do botão de acessibilidade */
+        }
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+        }
     </style>
 </head>
 
 <body>
 
- <!-- Botão de Acessibilidade -->
- <div class="accessibility-button" id="accessibilityButton">
-    <img src="https://live.staticflickr.com/65535/54070305008_8f3bf09e93_b.jpg" alt="Acessibilidade">
+<!-- Botão de Acessibilidade -->
+<div class="accessibility-button" id="accessibility-btn">
+    <img src="https://live.staticflickr.com/65535/54070458628_c488709798_b.jpg" alt="Acessibilidade">
 </div>
 
 <!-- Controles de Acessibilidade -->
-<div class="controls" id="controls">
-    <button id="increaseText">A+</button>
-    <button id="decreaseText">A-</button>
-    <button id="toggleContrast">Contraste</button>
+<div class="controls" id="accessibility-controls">
+    <button onclick="toggleContrast()">Alto Contraste</button>
+    <button onclick="increaseFont()">Aumentar Fonte</button>
+    <button onclick="resetFont()">Redefinir Fonte</button>
 </div>
+
+<!-- Botão do WhatsApp -->
+<div class="whatsapp-button">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+</div>
+
+<script>
+    // Alterna a visibilidade dos controles de acessibilidade
+    const accessibilityBtn = document.getElementById('accessibility-btn');
+    const accessibilityControls = document.getElementById('accessibility-controls');
+
+    accessibilityBtn.addEventListener('click', () => {
+        const isVisible = accessibilityControls.style.display === 'block';
+        accessibilityControls.style.display = isVisible ? 'none' : 'block';
+    });
+
+    // Alterna o modo de alto contraste
+    function toggleContrast() {
+        document.body.classList.toggle('high-contrast');
+    }
+
+    // Aumenta o tamanho da fonte
+    function increaseFont() {
+        document.body.style.fontSize = 'larger';
+    }
+
+    // Redefine o tamanho da fonte para o padrão
+    function resetFont() {
+        document.body.style.fontSize = '';
+    }
+</script>
 
 <!-- Link do WhatsApp -->
 <a href="https://wa.me/5513997021182" target="_blank" style="text-decoration: none;">
@@ -107,6 +173,11 @@
             No dia do seu aniversário, o refri é por nossa conta!<br>
             Para pedidos acima de 200 salgados, nos envie uma foto de sua data de nascimento em seu RG e ganhe um refrigerante 2 litros grátis!!!
         </p>
+    
+        <!-- Imagem dentro da mesma seção -->
+        <div class="imagem-promocao">
+            <center><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyzQHanSfJ6Q1Bq8gATP58O5euP6wZuozX8GX6WwsWKmjBQCgqYDWtxhxYANgBliFGjTOEwj9jxwVU3KBOkaL71U6OWgyf-KPb3Somj2-BWqRB-xOrJzjsMP0Sb8eNby_4DK9GXxGPm8s/s280/bexigas2.gif" alt="Imagem de Promoção" /></center>
+        </div>
     </section>
     
     <section id="cardapio">
@@ -120,63 +191,81 @@
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070398289_7183e2ca33_b.jpg" alt="Coxinhas Crocantes">
                 <h2>Coxinhas Crocantes</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 69,90 - 100 unidades</p>
+                <p>R$ 39,50 - 50 unidades</p>
+                <p>R$ 29,50 - 30 unidades</p>
             </div>
 
             <!-- Produto 2 - Bolinha de Queijo -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070527375_fe91a6c711_b.jpg" alt="Bolinha de Queijo">
                 <h2>Bolinha de Queijo</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 69,90 - 100 unidades</p>
+                <p>R$ 39,50 - 50 unidades</p>
+                <p>R$ 29,50 - 30 unidades</p>
             </div>
 
             <!-- Produto 3 - Croquete de Carne -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070327283_1de7d87579_b.jpg" alt="Croquete de Carne">
                 <h2>Croquete de Carne</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 69,90 - 100 unidades</p>
+                <p>R$ 39,50 - 50 unidades</p>
+                <p>R$ 29,50 - 30 unidades</p>
             </div>
 
             <!-- Produto 4 - Enroladinho de Salsicha -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070530355_2951e3fa0a_b.jpg" alt="Enroladinho de Salsicha">
                 <h2>Enroladinho de Salsicha</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 69,90 - 100 unidades</p>
+                <p>R$ 39,50 - 50 unidades</p>
+                <p>R$ 29,50 - 30 unidades</p>
             </div>
 
             <!-- Produto 5 - Kibe Tradicional -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070330403_0b34ec374f_b.jpg" alt="Kibe Tradicional">
                 <h2>Kibe Tradicional</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 69,90 - 100 unidades</p>
+                <p>R$ 39,50 - 50 unidades</p>
+                <p>R$ 29,50 - 30 unidades</p>
             </div>
 
             <!-- Produto 6 - Maravilha de Presunto e Queijo -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070405394_2d2e55915d_b.jpg" alt="Maravilha de Presunto e Queijo">
                 <h2>Maravilha de Presunto e Queijo</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 69,90 - 100 unidades</p>
+                <p>R$ 39,50 - 50 unidades</p>
+                <p>R$ 29,50 - 30 unidades</p>
             </div>
 
             <!-- Produto 7 - Maravilha de Calabresa -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070075826_8d41eaae4c_b.jpg" alt="Maravilha de Calabresa">
                 <h2>Maravilha de Calabresa</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 69,90 - 100 unidades</p>
+                <p>R$ 39,50 - 50 unidades</p>
+                <p>R$ 29,50 - 30 unidades</p>
             </div>
 
             <!-- Produto 8 - Mini Churros -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070535385_038c8fc6e1_b.jpg" alt="Mini Churros">
                 <h2>Mini Churros</h2>
-                <p>Preço: R$ 60,00 o cento</p>
+                <p>R$ 79,90 - 100 unidades</p>
+                <p>R$ 55,50 - 50 unidades</p>
+                <p>R$ 35,00 - 30 unidades</p>
             </div>
 
             <!-- Produto 9 - Salgados Congelados -->
             <div class="produto">
                 <img src="https://live.staticflickr.com/65535/54070078411_27ac59eedb_b.jpg" alt="Salgados Congelados">
                 <h2>Salgados Congelados</h2>
-                <p>Preço: R$ 50,00 o cento</p>
+                <p>R$ 64,90 - 100 unidades</p>
+                <p>R$ 34,50 - 50 unidades</p>
+                <p>R$ 24,50 - 30 unidades</p>
             </div>
         </div>
     </section>
