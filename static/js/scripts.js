@@ -1,33 +1,33 @@
-// Função para mostrar a seção correta
+// Função para exibir a seção ativa
 function showSection(sectionId) {
-    console.log('showSection chamada com ID:', sectionId); // Log para depuração
-    var sections = document.querySelectorAll('section');
-    sections.forEach(function(section) {
-        section.classList.remove('active');
-    });
-    var targetSection = document.getElementById(sectionId);
+    console.log('Mostrando seção:', sectionId);
+
+    // Esconde todas as seções
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.remove('active'));
+
+    // Mostra a seção correspondente ao ID
+    const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.add('active');
     } else {
-        console.error('Seção com ID', sectionId, 'não encontrada');
+        console.error('Seção não encontrada:', sectionId);
     }
 }
 
-// Função para garantir que a seção certa seja mostrada com base no hash da URL
-window.addEventListener('hashchange', function() {
+// Listener para mudanças no hash
+window.addEventListener('hashchange', () => {
     const hash = window.location.hash.substring(1);
-    console.log('hashchange evento, hash:', hash); // Log para depuração
-    if (hash) {
-        showSection(hash);
-    }
+    console.log('Hash atualizado:', hash);
+    if (hash) showSection(hash);
 });
 
-// Mostrar a seção correta com base no hash ao carregar a página
-window.onload = function() {
+// Mostrar a seção correta ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash.substring(1) || 'home';
-    console.log('window.onload evento, hash:', hash); // Log para depuração
+    console.log('Página carregada com hash:', hash);
     showSection(hash);
-}
+});
 
 // Lógica para a barra de busca
 document.addEventListener("DOMContentLoaded", function() {

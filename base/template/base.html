@@ -1,98 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" href="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/coxinha-AQEJ3vZJPRtgLNxB.png" type="image/png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Salgado & Cia</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <script src="{% static 'js/scripts.js' %}" defer></script>
-
-    <style>
-        /* Botão de acessibilidade */
-        .accessibility-button {
-            position: fixed;
-            right: 20px; /* Alinhado à direita */
-            bottom: 90px; /* Acima do botão do WhatsApp */
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            z-index: 1000; /* Sempre acima dos outros elementos */
-        }
-
-        .accessibility-button img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Controles de acessibilidade */
-        .controls {
-            display: none;
-            position: fixed;
-            right: 20px; /* Alinhado à direita */
-            bottom: 160px; /* Acima do botão de acessibilidade */
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            padding: 10px;
-            z-index: 1000;
-        }
-
-        .controls button {
-            margin: 5px;
-            padding: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            border: none;
-            background-color: #81d4fa;
-            color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .controls button:hover {
-            background-color: #4ba3c7;
-        }
-
-        /* Estilo de alto contraste */
-        .high-contrast {
-            background-color: black;
-            color: white;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Botão do WhatsApp */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px; /* Alinhado à direita */
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999; /* Abaixo do botão de acessibilidade */
-        }
-
-        .whatsapp-button img {
-            width: 30px;
-            height: 30px;
-        }
-    </style>
-</head>
-
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+        </style>
+    
+        <!-- Meta Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://seusalgadoecia.com');
+            fbq('init', '897218658631462');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=897218658631462&ev=PageView&noscript=1"/>
+        </noscript>
+        <!-- End Meta Pixel Code -->
+    
+        <link rel="icon" href="https://live.staticflickr.com/65535/54071461178_144f4cb7f5_b.jpg" type="image/jpg">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seu Salgado & Cia</title>
+        
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <script src="{% static 'js/scripts.js' %}" defer></script>
+    
+        <style>
+            /* Botão de acessibilidade */
+            .accessibility-button {
+                position: fixed;
+                right: 20px; /* Alinhado à direita */
+                bottom: 90px; /* Acima do botão do WhatsApp */
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                z-index: 1000; /* Sempre acima dos outros elementos */
+            }
+    
+            .accessibility-button img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    
+            /* Controles de acessibilidade */
+            .controls {
+                display: none;
+                position: fixed;
+                right: 20px; /* Alinhado à direita */
+                bottom: 160px; /* Acima do botão de acessibilidade */
+                background: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                padding: 10px;
+                z-index: 1000;
+            }
+    
+            .controls button {
+                margin: 5px;
+                padding: 10px;
+                font-size: 18px;
+                cursor: pointer;
+                border: none;
+                background-color: #81d4fa;
+                color: white;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+    
+            .controls button:hover {
+                background-color: #4ba3c7;
+            }
+    
+            /* Estilo de alto contraste */
+            .high-contrast {
+                background-color: black;
+                color: white;
+                transition: background-color 0.3s, color 0.3s;
+            }
+    
+            /* Botão do WhatsApp */
+            .whatsapp-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px; /* Alinhado à direita */
+                width: 60px;
+                height: 60px;
+                background-color: #25d366;
+                border-radius: 50%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 999; /* Abaixo do botão de acessibilidade */
+            }
+    
+            .whatsapp-button img {
+                width: 30px;
+                height: 30px;
+            }
+        </style>
+    </head>
+ 
 <body>
 
 <!-- Botão de Acessibilidade -->
@@ -138,13 +163,6 @@
     }
 </script>
 
-<!-- Link do WhatsApp -->
-<a href="https://wa.me/5513997021182" target="_blank" style="text-decoration: none;">
-    <button id="whatsapp-button">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </button>
-</a>
-
 <nav>
     <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/whatsapp-image-2024-04-28-at-13.26.52-YKbJP9eOk1u815VJ.png" alt="Ícone do Restaurante">
     <ul>
@@ -156,35 +174,53 @@
     </ul>
 </nav>
 
-    <section id="home" class="active">
-        <h1>Bem-vindo ao Seu Salgado & Cia!</h1>
-        <p>O melhor salgado da cidade, servida com carinho e crocancia.</p>
-    </section>
+<!-- SVG com efeito de ondulação -->
+<svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#e4641a" 
+        d="M0,30 C360,80 720,-20 1080,30 C1260,60 1440,30 1440,30 L1440,0 L0,0 Z"></path>
+</svg>
 
-    <section id="promocoes">
-        <h1>Promoções</h1>
-        <p>
-            Encomendas via Whatsapp com 15 dias de antecedência acima de 200 salgados, ganham 20% de desconto + frete grátis para São Vicente e Santos!<br>
-            Encomendas via Whatsapp com 7 dias de antecedência acima de 200 salgados, ganham 10% de desconto + frete grátis para São Vicente e Santos!<br><br>
+
+<section id="home" class="section">
+    <div class="faixa faixa-1">
+        <h2>Sobre Nós</h2>
+        <p>Bem-vindo ao nosso site! Conheça nossa história e missão.</p>
+    </div>
+
+    <div class="faixa faixa-2">
+        <h2>Promoções Especiais</h2>
+        <p>Confira as promoções disponíveis para você.</p>
+    </div>
+
+    <div class="faixa faixa-3">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco e nos siga nas redes sociais!</p>
+    </div>
+</section>
+
+<section id="promocoes" class="section">
+    <center><h1>Promoções</h1></center><br><br>
+    <p>
+        <strong>Encomendas</strong> via Whatsapp com 15 dias de antecedência acima de 200 salgados, ganham 20% de desconto + frete grátis para São Vicente e Santos!<br>
+        <strong>Encomendas</strong> via Whatsapp com 7 dias de antecedência acima de 200 salgados, ganham 10% de desconto + frete grátis para São Vicente e Santos!<br><br><br>
+
+        <strong>Programa fidelidade</strong> (junte suas notas):<br>
+        Peça 3 vezes dentro de um mês e ganhe 1 refrigerante 2 litros grátis!<br><br><br>
+
+        No dia do seu <strong>aniversário</strong>, o refri é por nossa conta!<br>
+        Para pedidos acima de 200 salgados, nos envie uma foto de sua data de nascimento em seu RG e ganhe um refrigerante 2 litros grátis!!!<br>
+    </p>
+
+    <!-- Imagem da pasta de estáticos -->
+    <img src="{% static 'imagens/baloes.png' %}" alt="Balões" style="max-width: 100%; height: auto;">
+
+</section>
     
-            Programa fidelidade (junte suas notas):<br>
-            Peça 3 vezes dentro de um mês e ganhe 1 refrigerante 2 litros grátis!<br><br>
-    
-            No dia do seu aniversário, o refri é por nossa conta!<br>
-            Para pedidos acima de 200 salgados, nos envie uma foto de sua data de nascimento em seu RG e ganhe um refrigerante 2 litros grátis!!!
-        </p>
-    
-        <!-- Imagem dentro da mesma seção -->
-        <div class="imagem-promocao">
-            <center><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyzQHanSfJ6Q1Bq8gATP58O5euP6wZuozX8GX6WwsWKmjBQCgqYDWtxhxYANgBliFGjTOEwj9jxwVU3KBOkaL71U6OWgyf-KPb3Somj2-BWqRB-xOrJzjsMP0Sb8eNby_4DK9GXxGPm8s/s280/bexigas2.gif" alt="Imagem de Promoção" /></center>
-        </div>
-    </section>
-    
-    <section id="cardapio">
-        <h1>Cardápio</h1>
+    <section id="cardapio" class="section">
+        <h1>Cardápio</h1><br>
         
         <!-- Barra de Busca -->
-        <input type="text" id="search-bar" placeholder="Buscar produto...">
+        <input type="text" id="search-bar" placeholder="Buscar produto..."><br>
 
         <div class="vitrine-produtos">
             <!-- Produto 1 - Coxinhas crocantes -->
@@ -270,11 +306,12 @@
         </div>
     </section>
 
-    <section id="localizacao">
-        <h1>Localização</h1>
-        <p>Estamos localizados no endereço abaixo:</p>
-        <p>Av. Manoel de Abreu, 560 - Cidade Náutica, São Vicente - SP, 11355-400</p>
-        
+    <section id="localizacao" class="section">
+        <h1>Localização</h1><br><br>
+        <p>Estamos localizados no endereço abaixo:</p><br>
+        <p>Av. Manoel de Abreu, 560 - Cidade Náutica, São Vicente - SP, 11355-400</p><br>
+        <p>CNPJ: 51.019.361/0001-10</p><br><br>
+
         <!-- Mapa do Google Maps -->
         <div class="map-container">
             <iframe 
@@ -284,13 +321,15 @@
         </div>
     </section>    
 
-    <section id="peca-ja">
-        <h1>Peça Já!</h1>
+    <section id="peca-ja" class="section">
+        <h1>Peça Já!</h1><br>
+        <img src="static/imagens/Salgados.png" alt="Salgados" class="salgados-img">
         <p>Faça seu pedido online agora mesmo!</p>
     
         <div class="text-box">
             <a href="https://www.ifood.com.br/delivery/sao-vicente-sp/seu-salgado--cia-cidade-nautica/91ffa0b1-5625-4513-b490-9fb9577606b4" class="btn btn-white btn-animated">iFood</a>
             <a href="https://www.whatsapp.com/catalog/5513997021182/?app_absent=0" class="btn btn-white btn-animated">Whatsapp</a>
             <a href="https://instadelivery.com.br/seusalgadocia" class="btn btn-white btn-animated">InstaDelivery</a>
+
         </div>
     </section>
