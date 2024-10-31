@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
+        <!-- Fonte da Google -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -28,77 +29,21 @@
         </noscript>
         <!-- End Meta Pixel Code -->
     
-        <link rel="icon" href="https://live.staticflickr.com/65535/54071461178_144f4cb7f5_b.jpg" type="image/jpg">
+        <link rel="icon" href="/static/imagens/coxinha.png" type="image/png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Seu Salgado & Cia</title>
-        
+
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <script src="{% static 'js/scripts.js' %}" defer></script>
     
-        <style>
-            /* Botão de acessibilidade */
-            .accessibility-button {
-                position: fixed;
-                right: 20px; /* Alinhado à direita */
-                bottom: 90px; /* Acima do botão do WhatsApp */
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                overflow: hidden;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-                cursor: pointer;
-                z-index: 1000; /* Sempre acima dos outros elementos */
-            }
-    
-            .accessibility-button img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-    
-            /* Controles de acessibilidade */
-            .controls {
-                display: none;
-                position: fixed;
-                right: 20px; /* Alinhado à direita */
-                bottom: 160px; /* Acima do botão de acessibilidade */
-                background: white;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-                border-radius: 8px;
-                padding: 10px;
-                z-index: 1000;
-            }
-    
-            .controls button {
-                margin: 5px;
-                padding: 10px;
-                font-size: 18px;
-                cursor: pointer;
-                border: none;
-                background-color: #81d4fa;
-                color: white;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-            }
-    
-            .controls button:hover {
-                background-color: #4ba3c7;
-            }
-    
-            /* Estilo de alto contraste */
-            .high-contrast {
-                background-color: black;
-                color: white;
-                transition: background-color 0.3s, color 0.3s;
-            }
-    
+        <style>  
             /* Botão do WhatsApp */
             .whatsapp-button {
                 position: fixed;
                 bottom: 20px;
-                right: 20px; /* Alinhado à direita */
+                right: 20px; 
                 width: 60px;
                 height: 60px;
                 background-color: #25d366;
@@ -108,7 +53,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                z-index: 999; /* Abaixo do botão de acessibilidade */
+                z-index: 999;
             }
     
             .whatsapp-button img {
@@ -121,50 +66,17 @@
 <body>
 
 <!-- Botão de Acessibilidade -->
-<div class="accessibility-button" id="accessibility-btn">
-    <img src="https://live.staticflickr.com/65535/54070458628_c488709798_b.jpg" alt="Acessibilidade">
-</div>
-
-<!-- Controles de Acessibilidade -->
-<div class="controls" id="accessibility-controls">
-    <button onclick="toggleContrast()">Alto Contraste</button>
-    <button onclick="increaseFont()">Aumentar Fonte</button>
-    <button onclick="resetFont()">Redefinir Fonte</button>
-</div>
+    <script src="https://cdn.userway.org/widget.js" data-account="CUP9es43fa"></script>
 
 <!-- Botão do WhatsApp -->
 <div class="whatsapp-button">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+    <a href="https://wa.me/5513997021182" target="_blank" class="whatsapp-button">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+    </a>
 </div>
 
-<script>
-    // Alterna a visibilidade dos controles de acessibilidade
-    const accessibilityBtn = document.getElementById('accessibility-btn');
-    const accessibilityControls = document.getElementById('accessibility-controls');
-
-    accessibilityBtn.addEventListener('click', () => {
-        const isVisible = accessibilityControls.style.display === 'block';
-        accessibilityControls.style.display = isVisible ? 'none' : 'block';
-    });
-
-    // Alterna o modo de alto contraste
-    function toggleContrast() {
-        document.body.classList.toggle('high-contrast');
-    }
-
-    // Aumenta o tamanho da fonte
-    function increaseFont() {
-        document.body.style.fontSize = 'larger';
-    }
-
-    // Redefine o tamanho da fonte para o padrão
-    function resetFont() {
-        document.body.style.fontSize = '';
-    }
-</script>
-
 <nav>
-    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=210,fit=crop/dOqbM9LOgEFEEwV4/whatsapp-image-2024-04-28-at-13.26.52-YKbJP9eOk1u815VJ.png" alt="Ícone do Restaurante">
+    <img src="/static/imagens/Logo.png" alt="Ícone do Restaurante">
     <ul>
         <li><a href="#home" onclick="showSection('home'); return false;">Home</a></li>
         <li><a href="#promocoes" onclick="showSection('promocoes'); return false;">Promoções</a></li>
@@ -176,38 +88,55 @@
 
 <!-- SVG com efeito de ondulação -->
 <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
-  <path fill="#e4641a" 
-        d="M0,30 C360,80 720,-20 1080,30 C1260,60 1440,30 1440,30 L1440,0 L0,0 Z"></path>
+    <path d="M0,32L60,42.7C120,53,240,75,360,64C480,53,600,11,720,10.7C840,11,960,53,1080,64C1200,75,1320,53,1380,42.7L1440,32V80H0Z" fill="#81d4fa"/>
 </svg>
 
-
 <section id="home" class="section">
+    <div class="home"></div>
     <div class="faixa faixa-1">
-        <h2>Sobre Nós</h2>
-        <p>Bem-vindo ao nosso site! Conheça nossa história e missão.</p>
+        <h2 style="text-align: center;">😍 Sobre Nós 😍</h2><br><br>
+        <left><p>Com mais de <strong>40 anos de experiência</strong> na produção de salgados, a <strong>Seu Salgado e Cia</strong> traz para você toda a tradição e qualidade que você procura. Nossa paixão pela culinária se traduz em salgados feitos com ingredientes frescos e selecionados, garantindo um sabor único e irresistível a cada mordida.</p><br><br>
+
+        <p><strong>🥳 Faça do seu dia uma festa!</strong></p><br>
+
+        <p>Seja para um evento especial, um coffee break no trabalho ou simplesmente para matar a vontade, nossos salgados são a escolha perfeita. Contamos com um cardápio variado e delicioso, com opções para todos os gostos. E para completar a sua festa, temos parcerias com as melhores confeitarias, oferecendo combos incríveis de bolo e docinhos.</p><br><br>
+
+        <p><strong>❤️ Qualidade e frescor em cada detalhe!</strong></p><br>
+
+        <p>Acreditamos que a comida boa começa com ingredientes de qualidade. Por isso, utilizamos apenas os melhores ingredientes em nossas receitas, garantindo que nossos salgados sejam sempre frescos e saborosos.</p><br><br>
+
+        <p>💎 Somos um Super-restaurante Ifood!</p>
+        <a href="https://www.ifood.com.br/delivery/sao-vicente-sp/seu-salgado--cia-cidade-nautica/91ffa0b1-5625-4513-b490-9fb9577606b4" target="_blank" class="avaliacao-btn">
+            Confira aqui nossas avaliações!
+        </a>
+        
     </div>
 
     <div class="faixa faixa-2">
-        <h2>Promoções Especiais</h2>
-        <p>Confira as promoções disponíveis para você.</p>
+        <h2>Funcionamos diariamente das 14:00 às 23:00h! </h2>
+        
+        <br><p>💳 Aceitamos cartões de crédito, débito e pix 💳</p>
+        <br><img src="/static/imagens/cartoes.png" <br><br>
     </div>
 
     <div class="faixa faixa-3">
-        <h2>Contato</h2>
-        <p>Entre em contato conosco e nos siga nas redes sociais!</p>
+        <h2>Instagram feed</h2><br>
+        <p>Nos siga nas redes sociais!</p><br><br><br>
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-6d5100e1-2954-4462-bdfa-4e16738b20f5" data-elfsight-app-lazy></div>
     </div>
 </section>
 
 <section id="promocoes" class="section">
     <center><h1>Promoções</h1></center><br><br>
     <p>
-        <strong>Encomendas</strong> via Whatsapp com 15 dias de antecedência acima de 200 salgados, ganham 20% de desconto + frete grátis para São Vicente e Santos!<br>
-        <strong>Encomendas</strong> via Whatsapp com 7 dias de antecedência acima de 200 salgados, ganham 10% de desconto + frete grátis para São Vicente e Santos!<br><br><br>
+        🛵 <strong>Encomendas</strong> via Whatsapp com 15 dias de antecedência acima de 200 salgados, ganham 20% de desconto + frete grátis para São Vicente e Santos!<br>
+        🛵 <strong>Encomendas</strong> via Whatsapp com 7 dias de antecedência acima de 200 salgados, ganham 10% de desconto + frete grátis para São Vicente e Santos!<br><br><br>
 
-        <strong>Programa fidelidade</strong> (junte suas notas):<br>
+        💍 <strong>Programa fidelidade</strong> (junte suas notas):<br>
         Peça 3 vezes dentro de um mês e ganhe 1 refrigerante 2 litros grátis!<br><br><br>
 
-        No dia do seu <strong>aniversário</strong>, o refri é por nossa conta!<br>
+        No dia do seu <strong>aniversário</strong>, o refri é por nossa conta! 🥳🥳🥳<br>
         Para pedidos acima de 200 salgados, nos envie uma foto de sua data de nascimento em seu RG e ganhe um refrigerante 2 litros grátis!!!<br>
     </p>
 
@@ -222,86 +151,91 @@
         <!-- Barra de Busca -->
         <input type="text" id="search-bar" placeholder="Buscar produto..."><br>
 
+        <!-- Ampliação -->
+        <div id="largeImageContainer" style="display: none;" onclick="hideLargeImage()">
+            <img id="largeImage" alt="Imagem Ampliada">
+        </div>                      
+
         <div class="vitrine-produtos">
-            <!-- Produto 1 - Coxinhas crocantes -->
+            <!-- Produto 1 - Coxinhas -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070398289_7183e2ca33_b.jpg" alt="Coxinhas Crocantes">
+                <img src="{% static 'imagens/coxinha.jpg' %}" alt="Coxinhas Crocantes" onclick="showLargeImage(this.src)">
                 <h2>Coxinhas Crocantes</h2>
-                <p>R$ 69,90 - 100 unidades</p>
-                <p>R$ 39,50 - 50 unidades</p>
-                <p>R$ 29,50 - 30 unidades</p>
+                <h2><p>R$ 69,90 - 100 unidades</p></h2>
+                <h2><p>R$ 39,50 - 50 unidades</p></h2>
+                <h2><p>R$ 29,50 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 2 - Bolinha de Queijo -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070527375_fe91a6c711_b.jpg" alt="Bolinha de Queijo">
+                <img src="{% static 'imagens/Bolinha de Queijo.jpg' %}" alt="Bolinha de Queijo" onclick="showLargeImage(this.src)">
                 <h2>Bolinha de Queijo</h2>
-                <p>R$ 69,90 - 100 unidades</p>
-                <p>R$ 39,50 - 50 unidades</p>
-                <p>R$ 29,50 - 30 unidades</p>
+                <h2><p>R$ 69,90 - 100 unidades</p></h2>
+                <h2><p>R$ 39,50 - 50 unidades</p></h2>
+                <h2><p>R$ 29,50 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 3 - Croquete de Carne -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070327283_1de7d87579_b.jpg" alt="Croquete de Carne">
+                <img src="{% static 'imagens/Croquete.jpg' %}" alt="Croquete" onclick="showLargeImage(this.src)">
                 <h2>Croquete de Carne</h2>
-                <p>R$ 69,90 - 100 unidades</p>
-                <p>R$ 39,50 - 50 unidades</p>
-                <p>R$ 29,50 - 30 unidades</p>
+                <h2><p>R$ 69,90 - 100 unidades</p></h2>
+                <h2><p>R$ 39,50 - 50 unidades</p></h2>
+                <h2><p>R$ 29,50 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 4 - Enroladinho de Salsicha -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070530355_2951e3fa0a_b.jpg" alt="Enroladinho de Salsicha">
+                <img src="{% static 'imagens/Enroladinho.jpg' %}" alt="Enroladinho de Salsicha" onclick="showLargeImage(this.src)">
                 <h2>Enroladinho de Salsicha</h2>
-                <p>R$ 69,90 - 100 unidades</p>
-                <p>R$ 39,50 - 50 unidades</p>
-                <p>R$ 29,50 - 30 unidades</p>
+                <h2><p>R$ 69,90 - 100 unidades</p></h2>
+                <h2><p>R$ 39,50 - 50 unidades</p></h2>
+                <h2><p>R$ 29,50 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 5 - Kibe Tradicional -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070330403_0b34ec374f_b.jpg" alt="Kibe Tradicional">
+                <img src="/static/imagens/Kibe.jpg" alt="Kibe Tradicional" onclick="showLargeImage(this.src)">
                 <h2>Kibe Tradicional</h2>
-                <p>R$ 69,90 - 100 unidades</p>
-                <p>R$ 39,50 - 50 unidades</p>
-                <p>R$ 29,50 - 30 unidades</p>
+                <h2><p>R$ 69,90 - 100 unidades</p></h2>
+                <h2><p>R$ 39,50 - 50 unidades</p></h2>
+                <h2><p>R$ 29,50 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 6 - Maravilha de Presunto e Queijo -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070405394_2d2e55915d_b.jpg" alt="Maravilha de Presunto e Queijo">
+                <img src="/static/imagens/Maravilha_p.jpg" alt="Maravilha de Presunto e Queijo" onclick="showLargeImage(this.src)">
                 <h2>Maravilha de Presunto e Queijo</h2>
-                <p>R$ 69,90 - 100 unidades</p>
-                <p>R$ 39,50 - 50 unidades</p>
-                <p>R$ 29,50 - 30 unidades</p>
+                <h2><p>R$ 69,90 - 100 unidades</p></h2>
+                <h2><p>R$ 39,50 - 50 unidades</p></h2>
+                <h2><p>R$ 29,50 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 7 - Maravilha de Calabresa -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070075826_8d41eaae4c_b.jpg" alt="Maravilha de Calabresa">
+                <img src="/static/imagens/Maravilha_c.jpg" alt="Maravilha de Calabresa" onclick="showLargeImage(this.src)">
                 <h2>Maravilha de Calabresa</h2>
-                <p>R$ 69,90 - 100 unidades</p>
-                <p>R$ 39,50 - 50 unidades</p>
-                <p>R$ 29,50 - 30 unidades</p>
+                <h2><p>R$ 69,90 - 100 unidades</p></h2>
+                <h2><p>R$ 39,50 - 50 unidades</p></h2>
+                <h2><p>R$ 29,50 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 8 - Mini Churros -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070535385_038c8fc6e1_b.jpg" alt="Mini Churros">
+                <img src="/static/imagens/Churros.jpg" alt="Mini Churros" onclick="showLargeImage(this.src)">
                 <h2>Mini Churros</h2>
-                <p>R$ 79,90 - 100 unidades</p>
-                <p>R$ 55,50 - 50 unidades</p>
-                <p>R$ 35,00 - 30 unidades</p>
+                <h2><p>R$ 79,90 - 100 unidades</p></h2>
+                <h2><p>R$ 55,50 - 50 unidades</p></h2>
+                <h2><p>R$ 35,00 - 30 unidades</p></h2>
             </div>
 
             <!-- Produto 9 - Salgados Congelados -->
             <div class="produto">
-                <img src="https://live.staticflickr.com/65535/54070078411_27ac59eedb_b.jpg" alt="Salgados Congelados">
+                <img src="/static/imagens/Congelados.jpg" alt="Salgados Congelados" onclick="showLargeImage(this.src)">
                 <h2>Salgados Congelados</h2>
-                <p>R$ 64,90 - 100 unidades</p>
-                <p>R$ 34,50 - 50 unidades</p>
-                <p>R$ 24,50 - 30 unidades</p>
+                <h2><p>R$ 64,90 - 100 unidades</p></h2>
+                <h2><p>R$ 34,50 - 50 unidades</p></h2>
+                <h2><p>R$ 24,50 - 30 unidades</p></h2>
             </div>
         </div>
     </section>
@@ -324,7 +258,8 @@
     <section id="peca-ja" class="section">
         <h1>Peça Já!</h1><br>
         <img src="static/imagens/Salgados.png" alt="Salgados" class="salgados-img">
-        <p>Faça seu pedido online agora mesmo!</p>
+        <p><strong>Faça seu pedido online agora mesmo!</strong></p>
+        <p>Funcionamos diariamente das 14:00 às 23:00h</p>
     
         <div class="text-box">
             <a href="https://www.ifood.com.br/delivery/sao-vicente-sp/seu-salgado--cia-cidade-nautica/91ffa0b1-5625-4513-b490-9fb9577606b4" class="btn btn-white btn-animated">iFood</a>
@@ -332,4 +267,6 @@
             <a href="https://instadelivery.com.br/seusalgadocia" class="btn btn-white btn-animated">InstaDelivery</a>
 
         </div>
+        <br><br><p>💳 Aceitamos cartões de crédito, débito e pix 💳</p>
+        <br><img src="/static/imagens/cartoes.png"
     </section>

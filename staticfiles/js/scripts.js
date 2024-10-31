@@ -30,23 +30,48 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // Lógica para a barra de busca
-document.addEventListener("DOMContentLoaded", function() {
-    const searchInput = document.querySelector("#search-bar");  // Assumindo que você tenha uma barra de busca
-    const produtos = document.querySelectorAll(".produto");
+searchInput.addEventListener("input", function() {
+    const searchValue = searchInput.value.toLowerCase();
 
-    searchInput.addEventListener("input", function() {
-        const searchValue = searchInput.value.toLowerCase();
-
-        produtos.forEach(function(produto) {
-            const produtoNome = produto.querySelector("h2").textContent.toLowerCase();
+    produtos.forEach(function(produto) {
+        const produtoNome = produto.querySelector("h2").textContent.toLowerCase();
+        
+        if (produtoNome.includes(searchValue)) {
+            produto.style.display = "block";  // Mostra o produto se ele corresponder à pesquisa
             
-            if (produtoNome.includes(searchValue)) {
-                produto.style.display = "block";  // Mostra o produto se ele corresponder à pesquisa
-            } else {
-                produto.style.display = "none";  // Oculta o produto se não corresponder
-            }
-        });
+            // Adiciona destaque
+            const highlightedName = produto.querySelector("h2");
+            highlightedName.innerHTML = produtoNome.replace(new RegExp(searchValue, 'gi'), (match) => `<span class="highlight">${match}</span>`);
+        } else {
+            produto.style.display = "none";  // Oculta o produto se não corresponder
+            
+            // Remove destaque
+            const highlightedName = produto.querySelector("h2");
+            highlightedName.innerHTML = produtoNome;
+        }
     });
+});
+
+// Função para mostrar a imagem ampliada
+function showLargeImage(src) {
+    const largeImageContainer = document.getElementById('largeImageContainer');
+    const largeImage = document.getElementById('largeImage');
+    largeImage.src = src; // Define a imagem ampliada
+    largeImageContainer.style.display = 'flex'; // Mostra o container
+}
+
+// Função para esconder a imagem ampliada ao clicar fora dela
+function hideLargeImage() {
+    const largeImageContainer = document.getElementById('largeImageContainer');
+    largeImageContainer.style.display = 'none'; // Esconde o container
+}
+
+// Evento para esconder a imagem ao clicar fora da imagem
+document.addEventListener('click', (event) => {
+    const largeImageContainer = document.getElementById('largeImageContainer');
+    if (largeImageContainer.style.display === 'flex' && event.target.id !== 'largeImage') {
+        hideLargeImage();
+    }
 });
 
 // ACESSIBILIDADE
