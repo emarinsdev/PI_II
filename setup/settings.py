@@ -3,12 +3,12 @@
 from pathlib import Path
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = 'django-insecure-2htv)h+b56ac*==_@q(^kz#t8*4!er(im-*lh2m2-v8ai$w%6('
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = True  # Altere para True durante o desenvolvimento
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'seusalgadoecia.com', 'seusalgadoecia.pythonanywhere.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -83,10 +83,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+
+# Diretórios para os arquivos estáticos
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Diretório onde você armazena os arquivos estáticos
+    os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Diretório onde os arquivos coletados serão armazenados
+
+# Diretório onde os arquivos estáticos coletados serão armazenados (após rodar o comando collectstatic)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
